@@ -227,7 +227,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             color: Colors.blue,
             child: Center(
               child: Text(
-                'Profile Screen',
+                'PROFILE',
                 style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.bold,

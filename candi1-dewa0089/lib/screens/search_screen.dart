@@ -12,7 +12,6 @@ class SearchScreen extends StatefulWidget {
 
 class _SearchScreenState extends State<SearchScreen> {
   List<Shoes> _filteredShoes = [];
-  String _searchQuery = ''; // Ubah menjadi non-final agar bisa diubah
 
   final TextEditingController _searchController = TextEditingController();
 
@@ -51,7 +50,7 @@ class _SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Pencarian Candi'),
+        title: const Text('Search Your Shoes'),
       ),
       body: Column(
         children: [
@@ -70,7 +69,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
                 autofocus: false,
                 decoration: InputDecoration(
-                  hintText: 'Cari Candi',
+                  hintText: 'Search Shoes',
                   prefixIcon: Icon(Icons.search),
                   border: InputBorder.none,
                   focusedBorder: OutlineInputBorder(

@@ -77,7 +77,7 @@ class _ItemCardState extends State<ItemCard> {
         // TODO: 2. Tetapkan parameter shape, margin, dan elevation
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         margin: EdgeInsets.all(12),
-        color: Colors.grey,
+        color: Colors.blue,
         elevation: 1,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,7 +119,7 @@ class _ItemCardState extends State<ItemCard> {
             Padding(
               padding: const EdgeInsets.only(left: 16, bottom: 8),
               child: Text(
-                widget.shoes.model,
+                widget.shoes.name,
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),

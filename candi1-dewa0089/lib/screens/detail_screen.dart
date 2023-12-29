@@ -115,7 +115,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         child: Image.asset(
                           widget.shoes.imageAsset,
                           // width: double.infinity,
-                          height: 100,
+                          height: 170,
                           // fit: BoxFit.cover,
                         ),
                       ),
@@ -160,8 +160,9 @@ class _DetailScreenState extends State<DetailScreen> {
                           SizedBox(
                             width: 12,
                           ),
-                          Text(shoes.name,
-                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text(shoes.rating.toString(),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 22)),
                         ],
                       ),
                     ),
@@ -208,12 +209,13 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     SizedBox(
                       height: 60,
-                      child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
-                          itemCount: 4,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (ctx, index) {
-                            return GestureDetector(
+                      child: ListView(
+                        physics: BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        children: List.generate(shoes.size.length, (index) {
+                          return Padding(
+                            padding: EdgeInsets.only(right: 14),
+                            child: GestureDetector(
                               onTap: () {
                                 setState(() {
                                   _isSelectedSize = index;
@@ -221,32 +223,35 @@ class _DetailScreenState extends State<DetailScreen> {
                               },
                               child: Container(
                                 width: 60,
-                                margin: EdgeInsets.only(right: 14),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   border: Border.all(
-                                      color: _isSelectedSize == index
-                                          ? Colors.black
-                                          : Colors.grey,
-                                      width: 1.5),
+                                    color: _isSelectedSize == index
+                                        ? Colors.black
+                                        : Colors.grey,
+                                    width: 1.5,
+                                  ),
                                   color: _isSelectedSize == index
                                       ? Colors.black
                                       : Colors.white,
                                 ),
                                 child: Center(
                                   child: Text(
-                                    sizes[index].toString(),
+                                    shoes.size[index].toString(),
                                     style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: _isSelectedSize == index
-                                            ? Colors.white
-                                            : Colors.black),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: _isSelectedSize == index
+                                          ? Colors.white
+                                          : Colors.black,
+                                    ),
                                   ),
                                 ),
                               ),
-                            );
-                          }),
+                            ),
+                          );
+                        }),
+                      ),
                     ),
                     SizedBox(
                       height: 10,
@@ -322,6 +327,9 @@ class _DetailScreenState extends State<DetailScreen> {
                   )
                 ],
               ),
+              SizedBox(
+                height: 30,
+              )
             ]),
           )
         ]),

@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 class Shoes {
   final int id;
@@ -9,6 +9,8 @@ class Shoes {
   final String imageAsset;
   bool isFavorite;
   final String category;
+  final List<int> size;
+  final double rating;
 
   Shoes({
     required this.id,
@@ -19,5 +21,7 @@ class Shoes {
     required this.imageAsset,
     this.isFavorite = false,
     required this.category,
+    required this.size,
+    required this.rating,
   });
 }
